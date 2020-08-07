@@ -177,13 +177,13 @@
               Seleccionamos en <i>tipo de aplicación</i> la <strong>aplicación para ordenador</strong> y en nombre no es
               necesario poner nada, finalizamos pulsando Crear:</p>
             <img src="img/14.png" class="img-fluid" mx-auto style="margin-bottom: 1em;"><br>
-            <label for="idCliente">ID de Cliente</label>
+            <label for="idCliente"><strong>ID de Cliente</strong></label>
             <input id="idCliente" class="form-control" type="text" title="idCliente"
               placeholder="Introducir ID de cliente" required>
             <div class="invalid-feedback">
               Campo obligatorio.
             </div>
-            <label for="secretoCliente">Secreto de Cliente</label>
+            <label for="secretoCliente"><strong>Secreto de Cliente</strong></label>
             <input id="secretoCliente" class="form-control" type="text" title="secretoCliente"
               placeholder="Introducir secreto de cliente" required>
             <div class="invalid-feedback">
@@ -213,7 +213,7 @@
             <h5>Paso 7:</h5>
             <p>
               Este paso es muy importante para poder dar permiso a GDrive a nuestra cuenta.</p>
-              <button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary"
+            <button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary"
               onclick="openGoogleConsoleTab(1)">Abrir consola de Google</button>
             <p>Pasos a seguir:</p>
             <img src="img/17.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
@@ -227,7 +227,7 @@
             <p>Confirmaremos</p>
             <img src="img/21.png" class="img-fluid" mx-auto style="margin-bottom: 1em;"><br>
             <img src="img/22.png" class="img-fluid" mx-auto style="margin-bottom: 1em;"><br>
-            <label for="codigoVerificacion">Código de verificación</label>
+            <label for="codigoVerificacion"><strong>Código de verificación</strong></label>
             <input type="text" class="form-control" id="codigoVerificacion"
               placeholder="Introducir código de verificación" required>
             <div class="invalid-feedback">
@@ -241,9 +241,13 @@
             <h4>Guardar archivo de configuración</h4>
             <p>
               Ya casi estamos terminando. Escoge un nombre para mostrarlo en GDrive</p>
+            <label for="nombreCuenta"><strong>Nombre de la cuenta</strong></label>
+            <input type="text" id="nombreCuenta" placeholder="Introduce el nombre de la cuenta" class="form-control"
+              required>
             <p>Pulsa para crear el fichero de configuración con todos tus datos. Te recomendamos guardarlo en un lugar
               accesible para poder abrirlo fácilmente desde Luar</p>
-            <button type="button" onclick="downloadFile()" class="btn btn-primary btn-block">Descargar archivo</button>
+            <button id="downloadButton" type="button" style="display: none;" onclick="downloadFile()"
+              class="btn btn-primary btn-block">Descargar archivo</button>
           </div>
         </div>
 
@@ -253,14 +257,61 @@
             <h5>Paso 8:</h5>
             <p>
               Por último abriremos <strong>Luar</strong></p>
-              <p>
-                Descargaremos el addon Gdrive disponible en la “Categoría Nuestros recomendados.”</p>
+            <p>
+              Descargaremos el addon Gdrive disponible en la “Categoría Nuestros recomendados.”</p>
             <img src="img/23.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
             <p>
               Una vez instalado iremos a Gestión de cuentas y APIS.</p>
-              <p>
-                Seleccionamos Añadir cuenta de usuario a GDrive </p>
-            <img src="img/24.png" class="img-fluid" mx-auto style="margin-bottom: 1em;"><br>
+            <p>
+              Seleccionamos Añadir cuenta de usuario a GDrive </p>
+            <img src="img/24.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Nos mostrara el siguiente mensaje. </p>
+            <img src="img/25.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Desde donde podemos abrir este tutorial (para los despistados :-) o <strong>Continuar el proceso…</strong>
+            </p>
+            <img src="img/26.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              ... que nos mostrara un cuadro de selección para que busquemos nuestro archivo con las APIs. </p>
+            <p>
+              Seleccionamos y confirmamos con OK y en unos segundos… </p>
+            <img src="img/27.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              … ya tendremos nuestras APIs Personales en el plugin de GDrive </p>
+            <img src="img/28.png" class="img-fluid" mx-auto style="margin-bottom: 1em;"><br>
+            <img src="img/29.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+          </div>
+          <div style="text-align: start;">
+            <h5>Paso 9:</h5>
+            <p>
+              Es hora de configurar nuestro script Resolveurl para que todo este Tutorial tenga sentido.</p>
+            <p>
+              Entramos en los ajustes de kodi.</p>
+            <img src="img/30.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Nos situamos en Sistema.</p>
+            <img src="img/31.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Vamos a Add-ons y Gestionar dependencias</p>
+            <img src="img/32.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Localizamos el Script ResoveURL y clicamos en el.</p>
+            <img src="img/33.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Entramos en configurar.</p>
+            <img src="img/34.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Lo primero será desactivar calidad y función cache. Entramos en la primera pestaña y desactivamos esas dos
+              opciones.</p>
+            <img src="img/35.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Ahora nos situamos en Resolvers 2 y en la pantalla de la derecha bajamos hasta localizar googledrive.</p>
+            <img src="img/36.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>
+              Una vez localizado activaremos el Use external GDrive addon if installed y saldremos con ok.</p>
+            <img src="img/37.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+            <p>Con esto finalizamos o <strong>no</strong>, el tema Apis de GDrive. </p>
           </div>
         </div>
 
@@ -309,7 +360,7 @@
       //... and fix the Previous/Next buttons:
       if (n != (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Siguiente";
-      } 
+      }
       $('body').scrollTop(0);
       //... and run a function that will display the correct step indicator:
       fixStepIndicator(n);
@@ -371,9 +422,9 @@
     }
 
     function openGoogleConsoleTab(type) {
-      if (0) {
+      if (type == 0) {
         window.open('https://console.cloud.google.com/', '_blank');
-      } else if (1) {
+      } else if (type == 1) {
         let idCliente = document.getElementById("idCliente").value;
         window.open(`https://accounts.google.com/o/oauth2/auth?approval_prompt=force&scope=https://www.googleapis.com/auth/drive.readonly&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code&client_id=${idCliente}`, '_blank');
       }
@@ -381,14 +432,15 @@
 
     function downloadFile() {
       console.log("Descargar archivo");
-      let claveAPI = document.getElementById("claveAPI").value;
+      // let claveAPI = document.getElementById("claveAPI").value;
       let idCliente = document.getElementById("idCliente").value;
       let secretoCliente = document.getElementById("secretoCliente").value;
       let codigoVerificacion = document.getElementById("codigoVerificacion").value;
-      let texto = `${claveAPI}\n${idCliente}\n${secretoCliente}\n${codigoVerificacion}\n`;
+      let nombreCuenta = document.getElementById("nombreCuenta").value;
+      let texto = `${nombreCuenta}\n${codigoVerificacion}\n${idCliente}\n${secretoCliente}\n`;
       let element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(texto));
-      element.setAttribute('target','_blank')
+      element.setAttribute('target', '_blank')
       element.setAttribute('download', "GDrive.txt");
 
       element.style.display = 'none';
@@ -397,7 +449,16 @@
       document.body.removeChild(element);
       document.getElementById("nextBtn").hidden = false;
     }
-    
+
+    $("#nombreCuenta").keyup(function () {
+      if ($(this).val()) {
+        $("#downloadButton").show();
+      }
+      else {
+        $("#downloadButton").hide();
+      }
+    });
+
   </script>
 </body>
 
