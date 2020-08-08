@@ -432,12 +432,12 @@
 
     function downloadFile() {
       console.log("Descargar archivo");
-      // let claveAPI = document.getElementById("claveAPI").value;
+      let claveAPI = document.getElementById("claveAPI").value;
       let idCliente = document.getElementById("idCliente").value;
       let secretoCliente = document.getElementById("secretoCliente").value;
       let codigoVerificacion = document.getElementById("codigoVerificacion").value;
       let nombreCuenta = document.getElementById("nombreCuenta").value;
-      let texto = `${nombreCuenta}\n${codigoVerificacion}\n${idCliente}\n${secretoCliente}\n`;
+      let texto = `${claveAPI}\n${idCliente}\n${secretoCliente}\n${codigoVerificacion}\n${nombreCuenta}\n`;
       let element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(texto));
       element.setAttribute('target', '_blank')
