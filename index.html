@@ -6,6 +6,7 @@
   <!-- CSS only -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
     integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
   <!-- JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -69,6 +70,103 @@
   .step.finish {
     background-color: #4CAF50;
   }
+
+  /* Drag & Drop style */
+  .item .item-content {
+    padding: 30px 35px
+  }
+
+  .image-upload {
+    width: 100%;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+    background: #f8f8f9;
+    color: #666;
+    overflow: hidden
+  }
+
+  .item-wrapper form img {
+    margin-bottom: 20px;
+    width: auto;
+    height: auto;
+    max-height: 400px;
+    width: auto;
+    border-radius: 5px;
+    overflow: hidden
+  }
+
+  .image-upload img {
+    height: 100% !important;
+    width: auto !important;
+    border-radius: 0px;
+    margin: 0 auto
+  }
+
+  .image-upload i {
+    font-size: 6em;
+    color: #ccc
+  }
+
+  .image-upload input {
+    cursor: pointer;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0
+  }
+
+  .item-wrapper input {
+    height: 43px;
+    line-height: 43px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px
+  }
+
+  /*End Drag & Drop style */
+
+  /* Start DnD */
+  .inputDnD>.form-control-file {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 6em;
+    outline: none;
+    visibility: hidden;
+    cursor: pointer;
+    background-color: #c61c23;
+    box-shadow: 0 0 5px solid currentColor;
+  }
+
+  .inputDnD>.form-control-file:before {
+    content: attr(data-title);
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    width: 100%;
+    min-height: 6em;
+    line-height: 2em;
+    padding-top: 1.5em;
+    opacity: 1;
+    visibility: visible;
+    text-align: center;
+    border: 0.25em dashed currentColor;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    overflow: hidden;
+  }
+
+  .inputDnD>.form-control-file:hover:before {
+    border-style: solid;
+    box-shadow: inset 0px 0px 0px 0.25em currentColor;
+  }
+
+  /*End DnD*/
 </style>
 
 <body style="text-align: center;">
@@ -76,7 +174,6 @@
     <div id="regForm" class="col-8 col-md-10 col-sm-10 order-md-1" style="display: inline-block;">
       <h2>Asistente de configuración para GDrive</h2>
       <form class="needs-validation" onsubmit="downloadFile()">
-
         <div class="tab mb-3">
           <div style="text-align: start;">
             <h4>Introducción</h4>
@@ -87,22 +184,32 @@
               familiares si así lo deseas.
             </p>
             <h5>Materiales necesarios</h5>
-            <ul>
-              <li>Paciencia</li>
-              <li>Un navegador</li>
-              <li>El Addon GDrive (No confundir con Google Drive)</li>
-              <li>Una cuenta Gmail (Mejor una sin uso)</li>
-              <li><strong>Luar. El único instalador que te lo instalara sin problemas.</strong></li>
-            </ul>
-            <!--<button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary"
-              onclick="openGoogleConsoleTab(0)">Abrir consola de Google</button> -->
+            <div class="row col-12">
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <ul>
+                  <li>Paciencia</li>
+                  <li>Un navegador</li>
+                  <li>El Addon GDrive (No confundir con Google Drive)</li>
+                  <li>Una cuenta Gmail (Mejor una sin uso)</li>
+                  <li><strong>Luar. El único instalador que te lo instalara sin problemas.</strong></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <button type="button" class="btn btn-block btn-primary" onclick="nextPrev(1)">Tutorial completo</button>
+                <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
+                  data-target="#paso2Modal">Regenerar código de
+                  autenticación</button>
+                <button type="button" class="btn btn-block btn-primary" onclick="nextPrev(6)">Añadir cuenta con
+                  Luar</button>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="tab mb-3">
           <div style="text-align: start;">
             <h4>1. Creación de una API KEY personal para Gdrive</h4>
-            <button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary"
+            <button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary" style="margin-bottom: 1%;"
               onclick="openGoogleConsoleTab(0)">Abrir consola de Google</button>
             <h5>Paso 1.1:</h5>
             <p>
@@ -145,7 +252,7 @@
               nuevamente es irrelevante lo que pongáis para este proceso. Para continuar pulsar en
               <i><strong>Guardar</strong></i> tras lo cual aparecerá una nueva ventana informativa: </p>
             <img src="img/09.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
-            <h5>Paso1.4:</h5>
+            <h5>Paso 1.4:</h5>
             <p>
               Seleccionaremos <i><strong>Credenciales</strong></i> en el menú de la izquierda:
             </p>
@@ -214,7 +321,7 @@
             <h5>Paso 2.1:</h5>
             <p>
               Este paso es muy importante para poder dar permiso a GDrive a nuestra cuenta.</p>
-            <button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary"
+            <button type="button" class="col-md-4 col-sm-6 btn btn-block btn-primary" style="margin-bottom: 1%;"
               onclick="openGoogleConsoleTab(1)">Abrir consola de Google</button>
             <p>Pasos a seguir:</p>
             <img src="img/17.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
@@ -284,7 +391,7 @@
             <img src="img/29.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
           </div>
           <div style="text-align: start;">
-           <!-- <h5>Paso 9:</h5>
+            <!-- <h5>Paso 9:</h5>
             <p>
               Es hora de configurar nuestro script Resolveurl para que todo este Tutorial tenga sentido.</p>
             <p>
@@ -347,6 +454,43 @@
         <button type="submit" class="btn">Descargar archivo</button>
       </form> -->
       </form>
+      <div class="modal fade" id="paso2Modal" tabindex="-1" role="dialog" aria-labelledby="paso2ModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="paso2ModalLabel">Subir archivo de configuración</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row m-b-1">
+                <div class="col-sm-6 offset-sm-3">
+                  <div class="form-group inputDnD">
+                    <div class="image-upload">
+                      <label style="cursor: pointer;" for="file_upload">
+                        <div class="dplay-tbl-cell"> <i class="fa fa-cloud-upload"></i>
+                          <h5 id="uploadFileLabel"><b>Suba un archivo</b> o arrástrelo aquí</h5>
+                          <h5 id="uploadFileName" hidden></h5>
+                          <input type="file" class="form-control-file" id="inputFile" accept="text/*"
+                            onchange="readFile(this)" data-title="Arrastre y suelte un archivo">
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="nextPrev(1)"
+                causesValidation="false">No tengo archivo de configuración</button>
+              <button id="uploadFile" type="button" class="btn btn-primary" data-dismiss="modal" onclick="nextPrev(4)"
+                hidden>Ir al paso 2</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!--end log form -->
@@ -382,6 +526,12 @@
         document.getElementById("regForm").submit();
         return false;
       }
+      if ($("#nombreCuenta").val()) {
+        $("#downloadButton").show();
+      }
+      else {
+        $("#downloadButton").hide();
+      }
       // Otherwise, display the correct tab:
       showTab(currentTab);
     }
@@ -410,12 +560,13 @@
 
     function fixStepIndicator(n) {
       // This function removes the "active" class of all steps...
+      document.getElementById("nextBtn").hidden = false;
       var i, x = document.getElementsByClassName("step");
       for (i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
       }
       //... and adds the "active" class on the current step:
-      if (n != x.length && currentTab != 5) {
+      if (n != x.length && currentTab != 5 && currentTab != 0) {
         x[n].className += " active";
       } else {
         document.getElementById("nextBtn").hidden = true;
@@ -449,6 +600,26 @@
       element.click();
       document.body.removeChild(element);
       document.getElementById("nextBtn").hidden = false;
+    }
+
+    function readFile(input) {
+      if (input.files && input.files[0]) {
+        let reader = new FileReader();
+        reader.onload = (e) => {
+          let data = e.target.result;
+          let name = input.files[0].name;
+          input.setAttribute("data-title", name);
+          document.getElementById("uploadFileName").innerHTML = name;
+          document.getElementById("uploadFileName").hidden = false;
+          document.getElementById("uploadFileLabel").hidden = true;
+          document.getElementById("uploadFile").hidden = false;
+          document.getElementById("claveAPI").value = data.split('\n')[0];
+          document.getElementById("idCliente").value = data.split('\n')[1];
+          document.getElementById("secretoCliente").value = data.split('\n')[2];
+          document.getElementById("nombreCuenta").value = data.split('\n')[4];
+        }
+        reader.readAsText(input.files[0]);
+      }
     }
 
     $("#nombreCuenta").keyup(function () {
