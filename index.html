@@ -203,6 +203,8 @@
                   autenticación</button>
                 <button type="button" class="btn btn-block btn-primary" onclick="nextPrev(6)">3. Añadir cuenta con
                   Luar</button>
+                  <button type="button" class="btn btn-block btn-primary" onclick="nextPrev(7)">4. Añadir cuenta sin
+                    Luar</button>
               </div>
             </div>
           </div>
@@ -426,8 +428,53 @@
               Una vez localizado activaremos el Use external GDrive addon if installed y saldremos con ok.</p>
             <img src="img/37.png" class="img-fluid" mx-auto style="margin-bottom: 1em;"> -->
             <p>Con esto finalizamos o <strong>no</strong>, el tema Apis de GDrive. </p>
-			<p><center><strong>&#169; 2020 KodiManiac</center></strong> </p>
+			
           </div>
+        </div>
+
+        <div class="tab mb-3">
+          <div style="text-align: start;">
+            <h4>4. Pasos a seguir sin Luar.</h4>
+            <h5>Paso 4.1</h5>
+            <p>
+              Una vez descargado el archivo lo abriremos con un editor de txt. (recomendado Notepad)</p>
+            <p>Tendremos 5 líneas, una debajo de la otra.</p>
+              <img src="img/30.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+              <p>Abriremos nuestro navegador y abriremos sesión con el Gmail que se crearon los códigos. Minimizamos. </p>
+              <h5>Paso 4.2</h5>
+              <p>
+                Abriremos Kodi y el addon GDrive, nos mostrara unas opciones.</p>
+              <p>Seleccionamos <strong>[enroll account]</strong></p>
+                <img src="img/31.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                <p>Apuntaremos la url que nos muestra. <i>(http://192.168.1.xxxxx:8011/enroll)</i> damos a Ok y no tocamos Kodi lo dejamos tal cual.</p>
+                <img src="img/32.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                <p>Esta url la vamos a poner en nuestro navegador <strong>(Con la sesión activa de la cuenta Gmail)</strong></p>
+                <h5>Paso 4.3</h5>
+                <p>
+                  Nos aparecerá esta imagen</p>
+                  <img src="img/33.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                <p>Aquí tan solo será copiar los códigos de nuestro txt.</strong></p>
+                  <img src="img/30.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>Client ID añadiremos el de la <strong>línea 2</strong></p>
+                  <p>Client Secret añadimos el de la <strong>línea 3</strong></p>
+                  <p>Damos a Submit y nos aparecerá esta ventana</p>
+                  <img src="img/34.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>En Nickname for account añadimos el de la <strong>línea 5</strong></p>
+                  <p>En Code (copy and paste from step 1) añadimos el de la <strong>línea 4</strong></p>
+                  <p>Damos a Submit y nos aparecerá esta ventana</p>
+                  <img src="img/35.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>Si saliera este mensaje,</p>
+                  <img src="img/36.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>Tendríamos que volver al Paso 2 del tutorial y generar otro código. (no es necesario guardar el archivo tan solo copiar y pegarlo en <strong>Code (copy and paste from step 1)</strong></p>
+                  <p>Regresamos a Kodi. Le damos en los <strong>2 ..</strong></p>
+                  <img src="img/37.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>Y… listo cuenta añadida. Entramos en el nombre…</p>
+                  <img src="img/38.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>… y eureka ya está.</p>
+                  <img src="img/39.png" class="img-fluid" mx-auto style="margin-bottom: 1em;">
+                  <p>Con esto terminamos este tutorial.</p>
+				  <p><center><strong>&#169; 2020 KodiManiac</center></strong> </p>
+                </div>
         </div>
 
         <div style="overflow:auto;">
@@ -438,6 +485,7 @@
 
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
