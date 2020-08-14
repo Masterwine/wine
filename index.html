@@ -644,7 +644,7 @@
       let secretoCliente = document.getElementById("secretoCliente").value;
       let codigoVerificacion = document.getElementById("codigoVerificacion").value;
       let nombreCuenta = document.getElementById("nombreCuenta").value;
-      let texto = `Clave Api: ${claveAPI}\nId Cliente: ${idCliente}\nSecreto Cliente: ${secretoCliente}\nGenerado: ${codigoVerificacion}\nNombre: ${nombreCuenta}\nArchivo creado por Luar\n`;
+      let texto = `${claveAPI}\n${idCliente}\n${secretoCliente}\n${codigoVerificacion}\n${nombreCuenta}\n`;
       let element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(texto));
       element.setAttribute('target', '_blank')
@@ -668,10 +668,10 @@
           document.getElementById("uploadFileName").hidden = false;
           document.getElementById("uploadFileLabel").hidden = true;
           document.getElementById("uploadFile").hidden = false;
-          document.getElementById("claveAPI").value = data.split('\n')[0].split(': ')[1];
-          document.getElementById("idCliente").value = data.split('\n')[1].split(': ')[1];
-          document.getElementById("secretoCliente").value = data.split('\n')[2].split(': ')[1];
-          document.getElementById("nombreCuenta").value = data.split('\n')[4].split(': ')[1];
+          document.getElementById("claveAPI").value = data.split('\n')[0];
+          document.getElementById("idCliente").value = data.split('\n')[1];
+          document.getElementById("secretoCliente").value = data.split('\n')[2];
+          document.getElementById("nombreCuenta").value = data.split('\n')[4];
         }
         reader.readAsText(input.files[0]);
       }
