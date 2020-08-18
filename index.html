@@ -183,6 +183,9 @@
               Drive, incluyendo videos, música e imágenes. Podemos incluso compartir nuestra colección con amigos y
               familiares si así lo deseas.
             </p>
+            <p>
+              <strong>ATENCIÓN:</strong> Si en algún momento del proceso de creación de los códigos pide <big><i>añadir tarjeta de crédito</i></big> <strong>NO SEGUIR.</strong> Mirar de cambiar de navegador. <strong>ESTO ES GRATUITO.</strong>
+            </p>
             <h5>Materiales necesarios</h5>
             <div class="row col-12">
               <div class="col-md-6 col-sm-12 col-xs-12">
@@ -193,7 +196,7 @@
                   <li>Una cuenta Gmail (Mejor una sin uso). 
 				  <strong>No usar la cuenta de Gmail personal.</strong> 
 				  Mejor crear una exclusiva para kodi (si ya la creaste para las apis de YouTube puedes usar esa misma cuenta)</li>
-                  <li><strong>Luar. El único instalador que te lo instalara sin problemas.</strong></li>
+                  <li><strong>Luar. El único instalador que te lo instalara sin problemas.<br><i>( Versión 0.5.1 y posteriores )</i></strong></li></br>
                 </ul>
               </div>
               <div class="col-md-6 col-sm-12 col-xs-12">
@@ -644,7 +647,7 @@
       let secretoCliente = document.getElementById("secretoCliente").value;
       let codigoVerificacion = document.getElementById("codigoVerificacion").value;
       let nombreCuenta = document.getElementById("nombreCuenta").value;
-      let texto = `${claveAPI}\n${idCliente}\n${secretoCliente}\n${codigoVerificacion}\n${nombreCuenta}\n`;
+      let texto = `Clave Api: ${claveAPI}\nId Cliente: ${idCliente}\nSecreto Cliente: ${secretoCliente}\nGenerado: ${codigoVerificacion}\nNombre: ${nombreCuenta}\nArchivo creado por Luar\n`;
       let element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(texto));
       element.setAttribute('target', '_blank')
@@ -668,10 +671,10 @@
           document.getElementById("uploadFileName").hidden = false;
           document.getElementById("uploadFileLabel").hidden = true;
           document.getElementById("uploadFile").hidden = false;
-          document.getElementById("claveAPI").value = data.split('\n')[0];
-          document.getElementById("idCliente").value = data.split('\n')[1];
-          document.getElementById("secretoCliente").value = data.split('\n')[2];
-          document.getElementById("nombreCuenta").value = data.split('\n')[4];
+          document.getElementById("claveAPI").value = data.split('\n')[0].split(': ')[1];
+          document.getElementById("idCliente").value = data.split('\n')[1].split(': ')[1];
+          document.getElementById("secretoCliente").value = data.split('\n')[2].split(': ')[1];
+          document.getElementById("nombreCuenta").value = data.split('\n')[4].split(': ')[1];
         }
         reader.readAsText(input.files[0]);
       }
