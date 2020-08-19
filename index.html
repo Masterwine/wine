@@ -671,10 +671,10 @@
           document.getElementById("uploadFileName").hidden = false;
           document.getElementById("uploadFileLabel").hidden = true;
           document.getElementById("uploadFile").hidden = false;
-          document.getElementById("claveAPI").value = data.split('\n')[0].split(': ')[1];
-          document.getElementById("idCliente").value = data.split('\n')[1].split(': ')[1];
-          document.getElementById("secretoCliente").value = data.split('\n')[2].split(': ')[1];
-          document.getElementById("nombreCuenta").value = data.split('\n')[4].split(': ')[1];
+          document.getElementById("claveAPI").value = data.split('\n')[0].split(': ')[1] ? data.split('\n')[0].split(': ')[1] : data.split('\n')[0];   
+          document.getElementById("idCliente").value = data.split('\n')[1].split(': ')[1] ? data.split('\n')[1].split(': ')[1] : data.split('\n')[1];
+          document.getElementById("secretoCliente").value = data.split('\n')[2].split(': ')[1] ? data.split('\n')[2].split(': ')[1] : data.split('\n')[2];
+          document.getElementById("nombreCuenta").value = data.split('\n')[4].split(': ')[1] ? data.split('\n')[4].split(': ')[1] : data.split('\n')[4];
         }
         reader.readAsText(input.files[0]);
       }
